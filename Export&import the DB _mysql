@@ -1,0 +1,23 @@
+//https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-in-mysql-or-mariadb
+
+//EXPORTING DB
+
+The mysqldump console utility is used to export databases to SQL text files, making it relatively easy to transfer and move around. You will need the database name itself as well as the username and password to an account with privileges allowing at least full read only access to the database.
+
+Export your database using the following command structure:
+
+ -->mysqldump -u username -p database_name > data-dump.sql
+
+//username     : is the username you can log in to the database with
+//database_name: is the name of the database that will be exported
+//data-dump.sql: is the file in the current directory that the output will be saved to
+
+
+//IMPORTING THE DB
+
+ -->mysql -u username -p new_database < data-dump.sql
+
+//username     :  is the username you can log in to the database with
+//newdatabase  :  is the name of the freshly created database
+//data-dump.sql:  is the data dump file to be imported, located in the current directory
+
