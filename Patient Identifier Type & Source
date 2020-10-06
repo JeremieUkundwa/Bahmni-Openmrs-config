@@ -1,0 +1,43 @@
+********************************************
+	Patient Identifier Type & Source
+********************************************
+
+Access Db: > mysql -uroot -p
+           > password type: P@ssw0rd
+           > use openmrs
+           (NOW DB MYSQL IS READY TO ACCESS)
+____________________________________________
+   --> Update and access Patient identifier type and its source in DB
+         Steps to access:
+            -->select * from patient_identifier_type;
+            -->select * from idgen_identifier_source;
+            
+         Steps to update (retire):
+            -->update patient_identifier_type set retired =1;
+            -->update idgen_identifier_source set retired =1;
+            
+         Steps to update (unretire):
+            -->update patient_identifier_type set retired =0;
+            -->update idgen_identifier_source set retired =0;
+         ____________________________________________________________
+         
+   -->Deleting a row in mysql table
+     
+       eg:table name be patient_identifier_type
+         | id | uuid                                 | name        | description
+         | 1  |cf000268-07d6-11eb-b970-8b9ad2e0ba7d  |king faisal  |patient identifier
+         | 2  |097d3564-07d7-11eb-8b69-b30bbc672437  |hospital     |patient identifier           
+         
+        Steps to delete:
+           -->General formula: DELETE FROM `table_name` [WHERE condition];
+              
+              DELETE FROM `table_name` tells MySQL server to remove rows from the table ..
+              [WHERE condition] is optional and is used to put a filter that restricts the number of rows affected by the DELETE query.
+               
+               If the WHERE clause is not used in the DELETE MySQL query, then all the rows in a given table will be deleted. 
+              
+           -->DELETE FROM patient_identifier_type WHERE id =1;
+               this will delete row 1 in mysql table we have.
+_______________________________________________________________________
+    END
+*************************    
