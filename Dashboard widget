@@ -1,0 +1,46 @@
+*************************************************
+ 	Dashboard widget (Display-control)
+*************************************************
+Steps:
+	-->Add Section on second registration page:
+		-->Create v2 form by form builder(By help of conceptes insterted in concepts under openmrs config) THEN Publish
+		-->under apps/registation/extension.json EG: for follow up section
+		    "followUp":{
+			"id": "bahmni.registration.conceptSetGroup.followUp",
+			"extensionPointId": "org.bahmni.registration.conceptSetGroup.observations",
+			"type": "forms",
+			"extensionParams": {
+			    "formName": "Follow Up",
+			    "conceptNames": ["Medical treatment started","Home assistance desired","Comments"],
+			    "required":true,
+			    "showLatest": true
+			},
+			"order": 3,
+			"requiredPrivilege": "Edit Visits"
+		      }
+         _________________________________________________________
+	 -->Under app/clinical/dashboard.json add Eg for Follow up
+	    "followUp":{
+	       "translationKey":"Follow Up",
+	       "type":"vitals",
+	       "isObservation":true,
+	       "displayOrder":11,
+	       "dashboardConfig":{
+	       "conceptNames":["Medical treatment started","Home assistance desired","Comments"],
+	       "showDetailsButton":true,
+	       "numberOfVisits":2
+		  },
+		  "expandedViewConfig":{
+		  "conceptNames":["Medical treatment started","Home assistance desired","Comments"],
+		  "numberOfVisits":2,
+		  "scope":"latest",
+		  "showDetailsButton":true,
+		  "pivotTable":{}
+		   }
+	    }
+	__________________________________________________________
+
+  END
+ *******************************
+
+
