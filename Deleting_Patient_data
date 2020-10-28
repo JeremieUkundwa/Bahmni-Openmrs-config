@@ -1,0 +1,31 @@
+// https://bahmni.atlassian.net/wiki/spaces/BAH/pages/45776970/Using+a+Fresh+Database#UsingaFreshDatabase-Deletingpatientdatafromdatabase
+
+      // DELETING PATIENT DATA
+      __________________________
+   --> Step1: Set Environment Variables
+      --OPENMRS_DB_USER : User name of Openmrs Database
+      --OPENERP_DB_USER : User name of Openerp Database
+      --OPENELIS_DB_USER: User name of Openelis Database
+      --INVENTORY_FILE	 : Name of the Inventory File
+      
+      example:
+	  export OPENMRS_DB_USER=openmrs-user
+	  export OPENELIS_DB_USER=clinlims
+ 	  export OPENERP_DB_USER=openerp
+	  export INVENTORY_FILE=local
+	  
+   -->Step2: Download the script
+       //Download the delete patient data script from the github. Use the below command to download
+          >>Script for deleting patient data (v0.91)
+            --wget https://raw.githubusercontent.com/Bahmni/bahmni-scripts/master/deletePatientData/0.91/deletePatientData.sh
+          >>Script for deleting patient data (v0.92)
+            --wget https://raw.githubusercontent.com/Bahmni/bahmni-scripts/master/deletePatientData/0.92/deletePatientData.sh
+   -->Step3: Run the script
+      --sh deletePatientData.sh
+      
+**************************************
+//How the script works
+Running the script will download deletedPatientDataForOpenMRS.sql, deletePatientDataForOpenERP.sql and deletePatientDataForOpenElis.sql files.
+
+Depending on the  environment variables set the corresponding sql files will be executed. For instance, only OPENMRS_DB_USER is the only variable set then only openmrs patient data will be deleted.
+*************************************
